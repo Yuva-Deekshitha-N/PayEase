@@ -110,14 +110,12 @@ export function ReclaimVerificationModal({ open, onOpenChange, provider, onSucce
   }
 
   const handleClose = () => {
-    if (status !== "waiting") {
-      onOpenChange(false)
-      setTimeout(() => {
-        setStatus("idle")
-        setQrCodeUrl(null)
-        setErrorMessage(null)
-      }, 300)
-    }
+    onOpenChange(false)
+    setTimeout(() => {
+      setStatus("idle")
+      setQrCodeUrl(null)
+      setErrorMessage(null)
+    }, 300)
   }
 
   return (
