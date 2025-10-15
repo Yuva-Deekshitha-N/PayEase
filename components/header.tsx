@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
@@ -33,7 +34,7 @@ export function AppHeader() {
   }, [])
 
   return (
-    <header className="sticky top-0 z-40 w-full pt-3 pb-2">
+    <header className="sticky top-0 z-40 w-full pt-3 pb-2 ">
       <div
         className="grid grid-cols-[auto_1fr_auto] items-center rounded-none sm:rounded-2xl bg-primary/10 border-x-0 sm:border-x border-y border-primary/20 backdrop-blur-xl px-3 py-2"
         role="navigation"
@@ -44,7 +45,7 @@ export function AppHeader() {
           <SidebarDrawer open={open} onOpenChange={setOpen} />
           <Link href="/" className="font-semibold tracking-wide">
             <span className="inline-flex items-center gap-2">
-              <span className="h-6 w-6 rounded-lg bg-primary/20 ring-1 ring-primary/30" aria-hidden />
+              <Image src="/logo.png" alt="PayEase Logo" width={28} height={28 } className="h-6 w-6" />
               PayEase
             </span>
           </Link>
