@@ -20,7 +20,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased min-h-dvh bg-background`}>
         <Suspense fallback={<div>Loading...</div>}>
           <Providers>
-            <div className="mx-auto w-full md:max-w-2xl lg:max-w-3xl">
+            <div className="mx-auto w-full md:max-w-3xl lg:max-w-4xl">
               <AppHeader />
               <main className="px-3 pb-24">{children}</main>
             </div>
@@ -31,3 +31,5 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     </html>
   )
 }
+
+

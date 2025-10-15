@@ -36,7 +36,7 @@ export function AppHeader() {
   return (
     <header className="sticky top-0 z-40 w-full pt-3 pb-2 ">
       <div
-        className="grid grid-cols-[auto_1fr_auto] items-center rounded-none sm:rounded-2xl bg-primary/10 border-x-0 sm:border-x border-y border-primary/20 backdrop-blur-xl px-3 py-2"
+        className="grid grid-cols-[auto_1fr_auto] items-center rounded-none sm:rounded-2xl bg-primary/10 border-x-0 sm:border-x border-y border-primary/20 backdrop-blur-xl px-4 py-3 min-h-[60px]"
         role="navigation"
         aria-label="Main"
       >
@@ -70,16 +70,16 @@ export function AppHeader() {
         </nav>
 
         {/* Right: wallet actions */}
-        <div className="flex items-center justify-end gap-2">
+        <div className="flex items-center justify-end gap-3 min-w-0">
           {activeAccount ? (
             <>
-              <span className="hidden sm:inline text-xs bg-primary/15 px-2 py-1 rounded-full">
+              <span className="hidden sm:inline text-xs bg-primary/15 px-3 py-1.5 rounded-full font-mono whitespace-nowrap">
                 {shortAddress(activeAccount.address)}
               </span>
               <Button
                 size="sm"
                 variant="secondary"
-                className="rounded-full"
+                className="rounded-full whitespace-nowrap"
                 onClick={async () => {
                   for (const w of wallets) {
                     if (w.isConnected) {
