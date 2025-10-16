@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://pay-ease-kfk7cfhta-yuva-deekshitha-ns-projects.vercel.app/sitemap.xml',
+    sitemap: 'https://pay-ease-9zmcbr56a-yuva-deekshitha-ns-projects.vercel.app/sitemap.xml',
   }
 }

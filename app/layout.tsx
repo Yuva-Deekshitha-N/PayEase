@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://pay-ease-kfk7cfhta-yuva-deekshitha-ns-projects.vercel.app",
+    url: "https://pay-ease-9zmcbr56a-yuva-deekshitha-ns-projects.vercel.app",
     title: "PayEase - Revolutionary Crypto PayLater Platform",
     description: "Experience the future of crypto payments with PayEase. Instant buy now pay later solutions on Algorand blockchain with zero collateral requirements.",
     siteName: "PayEase",
@@ -44,13 +44,14 @@ export const metadata: Metadata = {
     images: ["/logo.png"],
   },
   alternates: {
-    canonical: "https://pay-ease-kfk7cfhta-yuva-deekshitha-ns-projects.vercel.app",
+    canonical: "https://pay-ease-9zmcbr56a-yuva-deekshitha-ns-projects.vercel.app",
   },
   category: "Finance",
   verification: {
     google: "qunZFiuiU4IBtDRbA8VGYphVxLKloOpUIvI2R7sUZks",
   },
 }
+
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
