@@ -48,7 +48,7 @@ export function SidebarDrawer({ open, onOpenChange }: { open?: boolean; onOpenCh
 
           <nav className="grid gap-2">
             {[
-              { href: "/", label: "Dashboard" },
+              { href: "/piggy", label: "Piggy Bank" },
               { href: "/limits", label: "Increase Limit" },
               { href: "/checkout", label: "Pay with PayEase" },
               { href: "/transactions", label: "Transactions" },

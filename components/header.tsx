@@ -12,7 +12,7 @@ import { ConnectWalletButton } from "@/components/wallet/connect-wallet-button"
 import { LogOut } from "lucide-react"
 
 const NAV = [
-  { href: "/", label: "Dashboard" },
+  { href: "/piggy", label: "Piggy Bank" },
   { href: "/limits", label: "Limits" },
   { href: "/checkout", label: "Checkout" },
   { href: "/transactions", label: "Transactions" },
