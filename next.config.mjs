@@ -6,6 +6,7 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+
   images: {
     unoptimized: true,
     remotePatterns: [
@@ -25,8 +26,11 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'www.adobe.com',
       },
+      { protocol: 'https', 
+        hostname: 'upload.wikimedia.org' },
     ],
   },
 }
 
 export default nextConfig
+

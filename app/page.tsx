@@ -42,22 +42,19 @@ export default function Page() {
           <div className="overflow-x-auto scrollbar-hide">
             <div className="flex gap-4 pb-2" style={{ width: 'max-content' }}>
               {[
-                { name: "Zomato", logo: "https://logo.clearbit.com/zomato.com" },
-                { name: "Google", logo: "https://fonts.gstatic.com/s/i/productlogos/googleg/v6/24px.svg" },
-                { name: "Microsoft", logo: "https://logo.clearbit.com/microsoft.com" },
-                { name: "Netflix", logo: "https://logo.clearbit.com/netflix.com" },
-                { name: "Spotify", logo: "https://logo.clearbit.com/spotify.com" },
-                { name: "Amazon", logo: "https://logo.clearbit.com/amazon.com" },
-                { name: "Uber", logo: "https://logo.clearbit.com/uber.com" },
-                { name: "Airbnb", logo: "https://logo.clearbit.com/airbnb.com" },
-                { name: "Swiggy", logo: "https://logo.clearbit.com/swiggy.com" },
-                { name: "Apple", logo: "https://logo.clearbit.com/apple.com" },
-                { name: "Steam", logo: "https://logo.clearbit.com/steampowered.com" },
-                { name: "Discord", logo: "https://logo.clearbit.com/discord.com" },
-                { name: "Adobe", logo: "https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg" },
-                { name: "Dropbox", logo: "https://logo.clearbit.com/dropbox.com" },
-                { name: "GitHub", logo: "https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" },
-                { name: "Figma", logo: "https://logo.clearbit.com/figma.com" },
+                { name: "Zomato", logo: "/logos/zomato.svg" },
+                { name: "Swiggy", logo: "/logos/swiggy.png" },
+                { name: "Uber", logo: "/logos/uber.svg" },
+                { name: "Netflix", logo: "/logos/netflix.svg" },
+                { name: "Spotify", logo: "/logos/spotify.svg" },
+                { name: "Google", logo: "/logos/google.svg" },
+                { name: "Microsoft", logo: "/logos/microsoft.svg" },
+                { name: "Amazon", logo: "/logos/amazon.svg" },
+                { name: "Apple", logo: "/logos/apple.png" },
+                { name: "Discord", logo: "/logos/discord.svg" },
+                { name: "GitHub", logo: "/logos/github.svg" },
+                { name: "Adobe", logo: "/logos/adobe.svg" },
+                { name: "Figma", logo: "/logos/figma.svg" },
               ].map((partner) => (
                 <div key={partner.name} className="flex flex-col items-center gap-2 p-3 rounded-xl bg-card/40 border border-border/40 min-w-[80px]">
                   <Image 

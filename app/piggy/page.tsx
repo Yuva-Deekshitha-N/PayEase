@@ -8,22 +8,22 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { PiggyBank, Plus } from "lucide-react"
 import { useState } from "react"
 import Image from "next/image"
-
+import { ConnectGate } from "@/components/connect-gate"
 
 const supportedApps = [
-  { name: "Zomato", logo: "https://logo.clearbit.com/zomato.com", category: "Food Delivery" },
-  { name: "Swiggy", logo: "https://logo.clearbit.com/swiggy.com", category: "Food Delivery" },
-  { name: "Uber", logo: "https://logo.clearbit.com/uber.com", category: "Transportation" },
-  { name: "Netflix", logo: "https://logo.clearbit.com/netflix.com", category: "Streaming" },
-  { name: "Spotify", logo: "https://logo.clearbit.com/spotify.com", category: "Music" },
-  { name: "Google", logo: "https://fonts.gstatic.com/s/i/productlogos/googleg/v6/24px.svg", category: "Cloud Services" },
-  { name: "Microsoft", logo: "https://logo.clearbit.com/microsoft.com", category: "Software" },
-  { name: "Amazon", logo: "https://logo.clearbit.com/amazon.com", category: "E-commerce" },
-  { name: "Apple", logo: "https://logo.clearbit.com/apple.com", category: "Technology" },
-  { name: "Discord", logo: "https://logo.clearbit.com/discord.com", category: "Communication" },
-  { name: "GitHub", logo: "https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png", category: "Development" },
-  { name: "Adobe", logo: "https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg", category: "Creative" },
-  { name: "Figma", logo: "https://logo.clearbit.com/figma.com", category: "Design" },
+  { name: "Zomato", logo: "/logos/zomato.svg", category: "Food Delivery" },
+  { name: "Swiggy", logo: "/logos/swiggy.png", category: "Food Delivery" },
+  { name: "Uber", logo: "/logos/uber.svg", category: "Transportation" },
+  { name: "Netflix", logo: "/logos/netflix.svg", category: "Streaming" },
+  { name: "Spotify", logo: "/logos/spotify.svg", category: "Music" },
+  { name: "Google", logo: "/logos/google.svg", category: "Cloud Services" },
+  { name: "Microsoft", logo: "/logos/microsoft.svg", category: "Software" },
+  { name: "Amazon", logo: "/logos/amazon.svg", category: "E-commerce" },
+  { name: "Apple", logo: "/logos/apple.png", category: "Technology" },
+  { name: "Discord", logo: "/logos/discord.svg", category: "Communication" },
+  { name: "GitHub", logo: "/logos/github.svg", category: "Development" },
+  { name: "Adobe", logo: "/logos/adobe.svg", category: "Creative" },
+  { name: "Figma", logo: "/logos/figma.svg", category: "Design" },
 ];
 
 
@@ -52,7 +52,8 @@ export default function PiggyBankPage() {
   }
 
   return (
-    <div className="space-y-6">
+    <ConnectGate>
+      <div className="space-y-6">
       <div className="flex items-center gap-3">
         <PiggyBank className="h-8 w-8 text-primary" />
         <h1 className="text-3xl font-bold">Piggy Bank</h1>
@@ -136,6 +137,7 @@ export default function PiggyBankPage() {
           </div>
         </CardContent>
       </Card>
-    </div>
+      </div>
+    </ConnectGate>
   )
 }
