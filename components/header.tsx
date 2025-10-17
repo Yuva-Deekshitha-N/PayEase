@@ -14,7 +14,7 @@ import { LogOut } from "lucide-react"
 const NAV = [
   { href: "/piggy", label: "Piggy Bank" },
   { href: "/limits", label: "Limits" },
-  { href: "/checkout", label: "Checkout" },
+  { href: "/docs", label: "Docs" },
   { href: "/transactions", label: "Transactions" },
   { href: "/settings", label: "Settings" },
 ]

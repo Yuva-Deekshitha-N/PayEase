@@ -50,7 +50,7 @@ export function SidebarDrawer({ open, onOpenChange }: { open?: boolean; onOpenCh
             {[
               { href: "/piggy", label: "Piggy Bank" },
               { href: "/limits", label: "Increase Limit" },
-              { href: "/checkout", label: "Pay with PayEase" },
+              { href: "/docs", label: "Documentation" },
               { href: "/transactions", label: "Transactions" },
               { href: "/settings", label: "Settings" },
             ].map((i) => (

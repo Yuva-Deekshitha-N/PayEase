@@ -7,23 +7,25 @@ import { Input } from "@/components/ui/input"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { PiggyBank, Plus } from "lucide-react"
 import { useState } from "react"
-
+import Image from "next/image"
 
 
 const supportedApps = [
-  { name: "Zomato", logo: "🍔", category: "Food Delivery" },
-  { name: "Google", logo: "🔍", category: "Cloud Services" },
-  { name: "Microsoft", logo: "💻", category: "Software" },
-  { name: "Netflix", logo: "🎬", category: "Streaming" },
-  { name: "Spotify", logo: "🎵", category: "Music" },
-  { name: "Amazon", logo: "📦", category: "E-commerce" },
-  { name: "Uber", logo: "🚗", category: "Transportation" },
-  { name: "Swiggy", logo: "🍕", category: "Food Delivery" },
-  { name: "Apple", logo: "🍎", category: "Technology" },
-  { name: "Discord", logo: "💬", category: "Communication" },
-  { name: "GitHub", logo: "🐙", category: "Development" },
-  { name: "Figma", logo: "🎯", category: "Design" },
-]
+  { name: "Zomato", logo: "https://logo.clearbit.com/zomato.com", category: "Food Delivery" },
+  { name: "Swiggy", logo: "https://logo.clearbit.com/swiggy.com", category: "Food Delivery" },
+  { name: "Uber", logo: "https://logo.clearbit.com/uber.com", category: "Transportation" },
+  { name: "Netflix", logo: "https://logo.clearbit.com/netflix.com", category: "Streaming" },
+  { name: "Spotify", logo: "https://logo.clearbit.com/spotify.com", category: "Music" },
+  { name: "Google", logo: "https://fonts.gstatic.com/s/i/productlogos/googleg/v6/24px.svg", category: "Cloud Services" },
+  { name: "Microsoft", logo: "https://logo.clearbit.com/microsoft.com", category: "Software" },
+  { name: "Amazon", logo: "https://logo.clearbit.com/amazon.com", category: "E-commerce" },
+  { name: "Apple", logo: "https://logo.clearbit.com/apple.com", category: "Technology" },
+  { name: "Discord", logo: "https://logo.clearbit.com/discord.com", category: "Communication" },
+  { name: "GitHub", logo: "https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png", category: "Development" },
+  { name: "Adobe", logo: "https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg", category: "Creative" },
+  { name: "Figma", logo: "https://logo.clearbit.com/figma.com", category: "Design" },
+];
+
 
 export default function PiggyBankPage() {
   const [deposits, setDeposits] = useState([
@@ -117,7 +119,14 @@ export default function PiggyBankPage() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {supportedApps.map((app) => (
               <div key={app.name} className="flex items-center gap-3 p-3 rounded-lg border hover:bg-accent/50 transition-colors">
-                <span className="text-2xl">{app.logo}</span>
+                <Image 
+                  src={app.logo} 
+                  alt={app.name} 
+                  width={32} 
+                  height={32} 
+                  className="rounded-lg"
+                  unoptimized
+                />
                 <div>
                   <p className="font-medium">{app.name}</p>
                   <p className="text-xs text-muted-foreground">{app.category}</p>
