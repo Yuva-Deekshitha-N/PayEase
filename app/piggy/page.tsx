@@ -9,6 +9,8 @@ import { PiggyBank, Plus } from "lucide-react"
 import { useState } from "react"
 import Image from "next/image"
 import { ConnectGate } from "@/components/connect-gate"
+import { usePiggyBank } from "@/lib/algorand/hooks"
+import { ContractStatus } from "@/components/contract-status"
 
 const supportedApps = [
   { name: "Zomato", logo: "/logos/zomato.svg", category: "Food Delivery" },
@@ -35,28 +37,40 @@ export default function PiggyBankPage() {
   ])
   const [amount, setAmount] = useState("")
   const [open, setOpen] = useState(false)
+  const { addDeposit, isDepositing } = usePiggyBank()
 
-  const handleAddDeposit = () => {
+  const handleAddDeposit = async () => {
     if (amount && parseFloat(amount) > 0) {
-      const newDeposit = {
-        id: deposits.length + 1,
-        amount: parseFloat(amount).toFixed(2),
-        currency: "USDC",
-        date: new Date().toISOString().split('T')[0],
-        status: "Active"
+      try {
+        // Add to smart contract
+        await addDeposit(parseFloat(amount))
+        
+        // Update local state
+        const newDeposit = {
+          id: deposits.length + 1,
+          amount: parseFloat(amount).toFixed(2),
+          currency: "USDC",
+          date: new Date().toISOString().split('T')[0],
+          status: "Active"
+        }
+        setDeposits([newDeposit, ...deposits])
+        setAmount("")
+        setOpen(false)
+      } catch (error) {
+        console.error('Failed to add deposit:', error)
       }
-      setDeposits([newDeposit, ...deposits])
-      setAmount("")
-      setOpen(false)
     }
   }
 
   return (
     <ConnectGate>
       <div className="space-y-6">
-      <div className="flex items-center gap-3">
-        <PiggyBank className="h-8 w-8 text-primary" />
-        <h1 className="text-3xl font-bold">Piggy Bank</h1>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <PiggyBank className="h-8 w-8 text-primary" />
+          <h1 className="text-3xl font-bold">Piggy Bank</h1>
+        </div>
+        <ContractStatus />
       </div>
 
       {/* Deposits Section */}
@@ -84,8 +98,12 @@ export default function PiggyBankPage() {
                     onChange={(e) => setAmount(e.target.value)}
                   />
                 </div>
-                <Button onClick={handleAddDeposit} className="w-full">
-                  Add Deposit
+                <Button 
+                  onClick={handleAddDeposit} 
+                  className="w-full"
+                  disabled={isDepositing}
+                >
+                  {isDepositing ? 'Adding...' : 'Add Deposit'}
                 </Button>
               </div>
             </DialogContent>

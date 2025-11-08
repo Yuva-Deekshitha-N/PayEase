@@ -6,10 +6,13 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "eslint .",
-    "start": "next start"
+    "start": "next start",
+    "deploy:contracts": "node scripts/quick-deploy.js"
   },
   "dependencies": {
     "@agoralabs-sh/avm-web-provider": "^1.7.0",
+    "@algorandfoundation/algokit-utils": "^9.1.2",
+    "@algorandfoundation/algorand-typescript": "^1.0.1",
     "@blockshake/defly-connect": "latest",
     "@hookform/resolvers": "^3.10.0",
     "@magic-ext/algorand": "latest",
