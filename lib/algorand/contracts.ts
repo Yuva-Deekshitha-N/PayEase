@@ -73,19 +73,22 @@ export class PayEaseContracts {
       
       console.log('Registering user:', userAddress, 'with payment:', paymentAmount);
       
-      // TODO: Implement actual contract call when deployed
-      // const txn = algosdk.makeApplicationCallTxnFromObject({
-      //   from: userAddress,
-      //   appIndex: MAIN_CONTRACT_ID,
-      //   onComplete: algosdk.OnApplicationComplete.NoOpOC,
-      //   appArgs: [new Uint8Array(Buffer.from('register'))],
-      //   suggestedParams: await algodClient.getTransactionParams().do()
-      // });
+      const params = await algodClient.getTransactionParams().do();
+      
+      // Real contract call
+      const txn = algosdk.makeApplicationCallTxnFromObject({
+        from: userAddress,
+        appIndex: MAIN_CONTRACT_ID,
+        onComplete: algosdk.OnApplicationComplete.NoOpOC,
+        appArgs: [new Uint8Array(Buffer.from('register'))],
+        suggestedParams: params
+      });
       
       return {
         success: true,
-        txId: `contract-${MAIN_CONTRACT_ID}-registration`,
-        userContractId: MAIN_CONTRACT_ID
+        transaction: txn,
+        contractId: MAIN_CONTRACT_ID,
+        needsSigning: true
       };
     } catch (error) {
       console.error('Registration failed:', error);
@@ -199,11 +202,23 @@ export class PayEaseContracts {
         merchantName
       });
       
-      // Mock payment processing
+      const params = await algodClient.getTransactionParams().do();
+      
+      // Real USDC transfer
+      const paymentTxn = algosdk.makeAssetTransferTxnWithSuggestedParamsFromObject({
+        from: userAddress,
+        to: merchantAddress,
+        amount: amount * 1000000, // Convert to microUSDC
+        assetIndex: USDC_ASSET_ID,
+        suggestedParams: params
+      });
+      
       return {
         success: true,
-        txId: 'mock-payment-tx',
-        paymentId: `pay_${Date.now()}`
+        transaction: paymentTxn,
+        amount,
+        merchant: merchantName,
+        needsSigning: true
       };
     } catch (error) {
       console.error('Payment processing failed:', error);

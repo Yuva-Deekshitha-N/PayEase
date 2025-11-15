@@ -58,7 +58,7 @@ import {
   
   const helloApp = itxn
     .applicationCall({
-      appArgs: [methodSelector(UserAccountContract.prototype.createApplication),new arc4.UintN64(1) ],
+      appArgs: [methodSelector(UserAccountContract.prototype.createApplication),new arc4.Uint64(1) ],
       approvalProgram: compiled.approvalProgram,
       clearStateProgram: compiled.clearStateProgram,
       globalNumBytes: compiled.globalBytes,

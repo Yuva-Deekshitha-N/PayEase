@@ -2,6 +2,7 @@
 
 import { ConnectGate } from "@/components/connect-gate"
 import { LimitCard } from "@/components/limit-card"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
@@ -11,6 +12,7 @@ export default function Page() {
     <ConnectGate>
       <section className="space-y-4">
         <LimitCard />
+
 
         <div className="grid grid-cols-3 gap-3">
           {[
